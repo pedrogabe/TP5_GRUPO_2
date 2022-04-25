@@ -47,7 +47,7 @@ namespace TP5_GRUPO_2
                 adapter.Fill(ds);
                 return ds;
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             }
@@ -65,9 +65,12 @@ namespace TP5_GRUPO_2
             try
             {
                 var cmd = GetCommand(query, parameters);
-                return cmd.ExecuteNonQuery();
+                cmd.Connection.Open();
+                int affected = cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+                return affected;                
             }
-            catch
+            catch(Exception ex)
             {
                 return -1;
             }
