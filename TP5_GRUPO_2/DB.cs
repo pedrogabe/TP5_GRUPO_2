@@ -59,8 +59,8 @@ namespace TP5_GRUPO_2
         /// </summary>
         /// <param name="query">Consulta a la base de datos</param>
         /// <param name="parameters">Valores de los parámetros</param>
-        /// <returns>Cantidad de filas afectadas o -1 si falla la operación</returns>
-        public static int NonQuery(string query, params object[] parameters)
+        /// <returns>Cantidad de filas afectadas o null si falla la operación</returns>
+        public static int? NonQuery(string query, params object[] parameters)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace TP5_GRUPO_2
             }
             catch(Exception ex)
             {
-                return -1;
+                return null;
             }
         }
     }
