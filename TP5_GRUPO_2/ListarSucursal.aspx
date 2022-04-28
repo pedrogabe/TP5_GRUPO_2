@@ -53,7 +53,7 @@
                     <asp:TextBox ID="txtID" runat="server" Width="212px"></asp:TextBox>
                 </td>
                 <td class="auto-style6">
-                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
                 </td>
                 <td>
                     <asp:Button ID="btnMostrarTodos" runat="server" OnClick="btnMostrarTodos_Click" Text="Mostrar Todos" />
