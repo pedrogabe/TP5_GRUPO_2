@@ -21,12 +21,16 @@
         }
         .auto-style5 {
             width: 211px;
+            height: 30px;
         }
         .auto-style6 {
             width: 799px;
         }
         .auto-style7 {
             width: 108%;
+        }
+        .auto-style8 {
+            height: 30px;
         }
     </style>
 </head>
@@ -103,22 +107,19 @@
             </table>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style5">
-                        <br />
-                        <br />
+                    <td colspan="2">
+                        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblConfirmar" runat="server" ForeColor="Green"></asp:Label>
                     </td>
-                    <td>
-                        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" />
+                </tr>
+                <tr>
+                    <td class="auto-style5">
+                    </td>
+                    <td class="auto-style8">
+                        <asp:Button ID="btnAceptar" runat="server" Text="Guardar" OnClick="btnAceptar_Click" />
                     </td>
                 </tr>
             </table>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
         </div>
     </form>
 </body>
