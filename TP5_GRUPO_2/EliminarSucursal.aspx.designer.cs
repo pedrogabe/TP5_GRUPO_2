@@ -87,6 +87,33 @@ namespace TP5_GRUPO_2
         protected global::System.Web.UI.WebControls.Button btnEliminarID;
 
         /// <summary>
+        /// Control revEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEliminar;
+
+        /// <summary>
+        /// Control rfvEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEliminar;
+
+        /// <summary>
+        /// Control vsEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsEliminar;
+
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>

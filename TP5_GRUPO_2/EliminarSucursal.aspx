@@ -22,12 +22,13 @@
         .auto-style5 {
             width: 259px;
         }
-        .auto-style6 {
-            margin-left: 200px;
+        .auto-style7 {
+            width: 18%;
+            height: 61px;
         }
     </style>
 </head>
-<body>
+<body style="height: 286px">
     <form id="form1" runat="server">
         <div>
             <table class="auto-style1">
@@ -59,13 +60,22 @@
                 </td>
                 <td>
                     <asp:Button ID="btnEliminarID" runat="server" Text="Eliminar" OnClick="btnEliminarID_Click" />
+                &nbsp;<asp:RegularExpressionValidator ID="revEliminar" runat="server" ControlToValidate="txtEliminarID" ErrorMessage="Solo puede ingresar numeros" ValidationExpression="^\d+$">*</asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvEliminar" runat="server" ControlToValidate="txtEliminarID" ErrorMessage="Debe ingresar algun valor">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
         </table>
-    &nbsp;&nbsp;
-        <div class="auto-style6">
+    &nbsp;&nbsp;<table class="auto-style7">
+            <tr>
+                <td>
+                    <asp:ValidationSummary ID="vsEliminar" runat="server" Height="48px" Width="224px" />
+                </td>
+            </tr>
+        </table>
             <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
-        </div>
-    </form>
+        <br />
+        <br />
+        <br />
+&nbsp;</form>
 </body>
 </html>

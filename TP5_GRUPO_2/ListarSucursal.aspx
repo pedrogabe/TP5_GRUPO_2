@@ -60,6 +60,7 @@
                 </td>
             </tr>
         </table>
+        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <asp:GridView ID="gvSucursales" runat="server">
         </asp:GridView>
