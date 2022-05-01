@@ -16,11 +16,11 @@ namespace TP5_GRUPO_2
             string Consulta;
             if (id == "")
             {
-                Consulta = "select * from dbo.Sucursal";
+                Consulta = "select Id_Sucursal, NombreSucursal, DescripcionSucursal, DescripcionProvincia, DireccionSucursal  from dbo.Sucursal inner join dbo.Provincia on dbo.Sucursal.Id_ProvinciaSucursal = dbo.Provincia.Id_Provincia";
             }
             else
             {
-                Consulta = "select * from dbo.Sucursal where id_Sucursal = " + id;
+                Consulta = "select Id_Sucursal, NombreSucursal, DescripcionSucursal, DescripcionProvincia, DireccionSucursal  from dbo.Sucursal inner join dbo.Provincia on dbo.Sucursal.Id_ProvinciaSucursal = dbo.Provincia.Id_Provincia where id_Sucursal = " + id;
             }
             DataSet ds = new DataSet();
             ds = DB.Query(Consulta);
