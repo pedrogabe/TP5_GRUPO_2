@@ -22,6 +22,9 @@
         .auto-style5 {
             width: 259px;
         }
+        .auto-style6 {
+            margin-left: 200px;
+        }
     </style>
 </head>
 <body>
@@ -55,10 +58,14 @@
                     <asp:TextBox ID="txtEliminarID" runat="server" Width="378px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="btnEliminarID" runat="server" Text="Eliminar" />
+                    <asp:Button ID="btnEliminarID" runat="server" Text="Eliminar" OnClick="btnEliminarID_Click" />
                 </td>
             </tr>
         </table>
+    &nbsp;&nbsp;
+        <div class="auto-style6">
+            <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
+        </div>
     </form>
 </body>
 </html>
