@@ -30,7 +30,7 @@ namespace TP5_GRUPO_2
                 if (ds == null)
                     { throw new Exception("DB"); }
                 else if(ds.Tables[0].Rows.Count==0)
-                    { lblError.Text = "El ID ingresado no existe"; }
+                    { lblError.Text = "El ID ingresado no existe"; lblError.Visible = true; }
 
                 gvSucursales.DataSource = ds.Tables[0];
                 gvSucursales.DataBind();
@@ -43,7 +43,7 @@ namespace TP5_GRUPO_2
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblError.Visible=false;
         }
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
