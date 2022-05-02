@@ -11,10 +11,10 @@ namespace TP5_GRUPO_2
 {
     public partial class ListarSucursal : System.Web.UI.Page
     {
-        private void MostrarTablaSucursales(string id="")
+        private void MostrarTablaSucursales(string id="", bool x=true)
         {
             string Consulta;
-            if (id == "")
+            if (id == "" && !x)
             {
                 Consulta = "select Id_Sucursal, NombreSucursal, DescripcionSucursal, DescripcionProvincia, DireccionSucursal  from dbo.Sucursal inner join dbo.Provincia on dbo.Sucursal.Id_ProvinciaSucursal = dbo.Provincia.Id_Provincia";
             }
@@ -28,7 +28,9 @@ namespace TP5_GRUPO_2
                 ds = DB.Query(Consulta);
 
                 if (ds == null)
-                        throw new Exception("DB");
+                    { throw new Exception("DB"); }
+                else if(ds.Tables[0].Rows.Count==0)
+                    { lblError.Text = "El ID ingresado no existe"; }
 
                 gvSucursales.DataSource = ds.Tables[0];
                 gvSucursales.DataBind();
@@ -47,7 +49,7 @@ namespace TP5_GRUPO_2
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
         {
 
-            MostrarTablaSucursales();
+            MostrarTablaSucursales("", false);
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
