@@ -12,20 +12,27 @@ namespace TP5_GRUPO_2
 {
     public partial class EliminarSucursal : System.Web.UI.Page
     {
-        public bool elimSucursal(string id = "")
+        public void elimSucursal(string id = "")
         {
+            int? affected;
             string Consulta;
-            if(id=="")
+            Consulta = "delete from dbo.Sucursal where dbo.Sucursal.Id_Sucursal =" + id;
+            DataSet ds = new DataSet();
+            affected = DB.NonQuery(Consulta);
+            if (affected == 0)
             {
-                Label1.Text = "Ingrese un id valido";
-                return false;
+                Label1.Text = "ID inexistente";
             }
             else
             {
-                Consulta = "delete from dbo.Sucursal where dbo.Sucursal.Id_Sucursal =" + id;
-                DataSet ds = new DataSet();
-                ds = DB.Query(Consulta);
-                return true;
+                if(affected == 1)
+                {
+                    Label1.Text = "La sucursal ha sido eliminada correctamente";
+                }
+                else
+                {
+                    Label1.Text = "Error al eliminar!";
+                }
             }
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -35,7 +42,7 @@ namespace TP5_GRUPO_2
 
         protected void btnEliminarID_Click(System.Object sender, System.EventArgs e)
         {
-            if (elimSucursal(txtEliminarID.Text)) Label1.Text = "La sucursal se ha eliminado correctamente";
+            elimSucursal(txtEliminarID.Text);
         }
     }
 }
