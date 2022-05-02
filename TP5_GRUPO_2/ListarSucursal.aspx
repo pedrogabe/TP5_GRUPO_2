@@ -51,9 +51,11 @@
                 <td class="auto-style4">Busqueda ingrese ID Sucursal:</td>
                 <td class="auto-style7">
                     <asp:TextBox ID="txtID" runat="server" Width="212px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtID" runat="server" ControlToValidate="txtID" EnableClientScript="False" ErrorMessage="Debe ingresar un ID" ValidationGroup="ValFiltrar">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="REVtxtID" runat="server" ControlToValidate="txtID" EnableClientScript="False" ErrorMessage="Ingrese un numero de ID valido" ValidationExpression="\d+" ValidationGroup="ValFiltrar">*</asp:RegularExpressionValidator>
                 </td>
                 <td class="auto-style6">
-                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" ValidationGroup="ValFiltrar" />
                 </td>
                 <td>
                     <asp:Button ID="btnMostrarTodos" runat="server" OnClick="btnMostrarTodos_Click" Text="Mostrar Todos" />
@@ -61,6 +63,8 @@
             </tr>
         </table>
         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+        <br />
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="ValFiltrar" />
         <br />
         <asp:GridView ID="gvSucursales" runat="server">
         </asp:GridView>
