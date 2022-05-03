@@ -12,12 +12,11 @@ namespace TP5_GRUPO_2
 {
     public partial class EliminarSucursal : System.Web.UI.Page
     {
-        public void elimSucursal(string id = "")
+        public void elimSucursal(string id)
         {
             int? affected;
             string Consulta;
             Consulta = "delete from dbo.Sucursal where dbo.Sucursal.Id_Sucursal =" + id;
-            DataSet ds = new DataSet();
             affected = DB.NonQuery(Consulta);
             if (affected == 0)
             {
@@ -37,12 +36,19 @@ namespace TP5_GRUPO_2
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label1.Text = "";
         }
 
         protected void btnEliminarID_Click(System.Object sender, System.EventArgs e)
         {
-            elimSucursal(txtEliminarID.Text);
+            if(PassesValidation())
+                elimSucursal(txtEliminarID.Text);
+        }
+
+        protected bool PassesValidation()
+        {
+            return rfvEliminar.IsValid &&
+                revEliminar.IsValid;
         }
     }
 }
