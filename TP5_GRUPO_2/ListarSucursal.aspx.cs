@@ -54,7 +54,15 @@ namespace TP5_GRUPO_2
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            MostrarTablaSucursales(txtID.Text);
+            if(ValidForm())
+                MostrarTablaSucursales(txtID.Text);
+        }
+
+        protected bool ValidForm()
+        {
+            return
+                RFVtxtID.IsValid &&
+                REVtxtID.IsValid;
         }
     }
 }
